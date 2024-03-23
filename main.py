@@ -73,7 +73,8 @@ def getparts():
     result = (
         get_db().execute("select part_no, quant from part_inventory_app").fetchall()
     )
-    app.logger.info("GETPARTS() - CURRENT PART INVENTORY:\n\t\t%s", result)
+    app.logger.info("GETPARTS() - CURRENT PART INVENTORY:\n\t\t%s",
+                    [dict(val) for val in result])
     return result
 
 
